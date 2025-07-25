@@ -1,82 +1,121 @@
-# Taller Práctico – Herencia, Polimorfismo y Serialización en Java
+🐾 Taller Práctico – Herencia, Polimorfismo y Serialización en Java
+🎯 Objetivo
+Implementar un sistema de gestión de personas en una veterinaria, aplicando:
 
-## 🎯 **Objetivo**
+🧬 Herencia
 
-Implementar un sistema de gestión de personas en una veterinaria, aplicando conceptos de herencia, polimorfismo, GUI con Swing y persistencia de datos.
+🎭 Polimorfismo
 
----
+🖥️ GUI con Swing
 
-## ✅ **Actividades realizadas**
+💾 Persistencia de datos
 
-1. **Refactorización de clases**
-    - Se creó la clase base `Persona` con atributos comunes: `nombre` y `identificacion`.
-    - Las clases `Propietario` y `Veterinario` heredan de `Persona`.
+✅ Actividades realizadas
+1. ✨ Refactorización de clases
+   Creación de la clase base Persona con atributos comunes: nombre y identificacion.
 
-2. **Atributos propios en las clases hijas**
-    - `Propietario`:
-        - Atributo propio: `telefono`.
-    - `Veterinario`:
-        - Atributo propio: `especialidad`.
+Subclases:
 
-3. **Lista polimórfica**
-    - Se implementó una lista de tipo `List<Persona>` para almacenar tanto propietarios como veterinarios de manera polimórfica.
+Propietario
 
-4. **Formulario dinámico con Swing**
-    - Se diseñó un formulario (`FormPersona.java`) con:
-        - `JComboBox` para seleccionar el tipo de persona.
-        - Campo extra dinámico que cambia la etiqueta según la selección (teléfono o especialidad).
-        - Validaciones de campos vacíos y de documento numérico.
-        - Botones de **Agregar** y **Eliminar por ID**.
-        - Área de texto para mostrar el listado de personas registradas.
+Veterinario
 
-5. **Implementación de `toString()`**
-    - Cada clase hija implementa su propio método `toString()` para mostrar su información de manera clara en el listado.
+2. 📝 Atributos propios en las clases hijas
+   Propietario
 
-6. **Persistencia opcional**
-    - Se implementó persistencia de las personas mediante serialización de objetos en archivo `personas.ser` usando `ObjectOutputStream` y `ObjectInputStream`.
-    - Al iniciar la aplicación, se cargan los datos previamente guardados.
-    - Al agregar o eliminar personas, el archivo se actualiza.
+➕ telefono
 
----
+Veterinario
 
-## 💻 **Ejecución**
+➕ especialidad
 
-- Ejecutar la clase `Main.java`, que configura el `LookAndFeel` del sistema operativo y abre la ventana principal `FormPersona`.
+3. 🗂️ Lista polimórfica
+   Implementación de List<Persona> para almacenar propietarios y veterinarios.
 
----
+4. 💻 Formulario dinámico con Swing
+   Diseño de FormPersona.java con:
 
-## 📁 **Estructura de paquetes**
+JComboBox para seleccionar tipo de persona.
 
-- **modelo**
-    - `Persona.java`
-    - `Propietario.java`
-    - `Veterinario.java`
+Campo extra dinámico según selección (📞 teléfono o 🩺 especialidad).
 
-- **controlador**
-    - `PersonaControlador.java`
+✅ Validaciones de campos vacíos y documento numérico.
 
-- **dao / persistencia**
-    - `PersonaDAO.java`
-    - `ArchivoUtil.java` (utilidades de archivos)
+🆕 Botones:
 
-- **vista**
-    - `FormPersona.java`
+Agregar
 
-- **Main.java**
+Eliminar por ID
 
----
+🖥️ Área de texto para mostrar listado de personas registradas.
 
-## 📝 **Notas adicionales**
+5. 🖊️ Método toString()
+   Cada clase hija implementa su propio toString() para mostrar información clara y legible.
 
-- Se implementaron clases utilitarias para manejo de archivos de texto (`ArchivoUtil`, `ArchivoManager`), aunque la persistencia principal usa serialización.
-- El sistema está preparado para futuras extensiones, como filtrado de personas o conexión con gestión de mascotas.
+6. 💾 Persistencia de datos
+   Serialización de objetos en personas.ser con ObjectOutputStream y ObjectInputStream.
 
----
+🔄 Carga automática de datos al iniciar la aplicación.
 
-## 👨‍💻 **Autor**
+📝 Actualización del archivo al agregar o eliminar personas.
 
-> Taller realizado por **Miguel Angel Guarin**  
+7. 🔧 Cambios recientes (Mejoras en persistencia y estructura)
+   ⚙️ Main.java
+   Eliminada la lista local de personas sin persistencia.
 
----
+Ahora se usa PersonaControlador para gestionar personas centralizadamente.
 
-### ✅ **Estado del taller: COMPLETADO**
+Agrega personas de prueba (Laura y Pedro) solo si la lista está vacía, evitando duplicados.
+
+Garantiza persistencia usando agregar() del controlador, guardando en personas.dat.
+
+✅ Flujo real implementado respetando MVC, evitando pérdida de datos.
+
+📂 PersonaDAO.java
+Agregada verificación y creación de la carpeta data antes de guardar el archivo personas.dat.
+
+✅ Se soluciona el error "El sistema no puede encontrar la ruta especificada", asegurando persistencia desde la primera ejecución.
+
+🗃️ Ejecución
+Ejecuta Main.java para:
+
+Configurar el LookAndFeel del sistema operativo.
+
+Abrir la ventana principal FormPersona.
+
+📁 Estructura de paquetes
+css
+Copiar
+Editar
+modelo/
+├── Persona.java
+├── Propietario.java
+└── Veterinario.java
+
+controlador/
+└── PersonaControlador.java
+
+dao/
+├── PersonaDAO.java
+└── ArchivoUtil.java
+
+vista/
+└── FormPersona.java
+
+Main.java
+
+📝 Notas adicionales
+Incluye clases utilitarias (ArchivoUtil, ArchivoManager) para manejo de archivos de texto.
+
+El sistema está preparado para futuras extensiones:
+
+🐶 Gestión de mascotas
+
+🔎 Filtrado de personas
+
+🗃️ Conexión con bases de datos
+
+👨‍💻 Autor
+✍️ Taller realizado por Miguel Angel Guarin
+
+🎓 Estado del taller: COMPLETADO ✅
